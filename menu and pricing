@@ -1,0 +1,97 @@
+class MenuItem:
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+
+class Menu:
+    def __init__(self):
+        self.menu_items = []
+
+    def add_item(self, item):
+        self.menu_items.append(item)
+
+    def display_menu(self):
+        print("Menu:")
+        for item in self.menu_items:
+            print(f"{item.name} - Rs{item.price}")
+
+def calculate_total(menu, choices):
+    total = 0
+    for choice in choices:
+        for item in menu.menu_items:
+            if item.name == choice:
+                total += item.price
+                break
+    return total
+
+def main():
+    # Create menu
+    menu = Menu()
+
+    # Add items to the menu
+    menu.add_item(MenuItem("Classic cheesy burger", 269))
+    menu.add_item(MenuItem("Crunchy burger", 269))
+    menu.add_item(MenuItem("Veg club tower", 269))
+    menu.add_item(MenuItem("Mexi chicken burger", 329))
+    menu.add_item(MenuItem("Crispy chicken burger", 329))
+    menu.add_item(MenuItem("Classic cheesy burger", 329))
+    menu.add_item(MenuItem("Grilled chicken burger", 329))
+    menu.add_item(MenuItem("Non-veg club tower", 329))
+    menu.add_item(MenuItem("Marghetria pizza", 399))
+    menu.add_item(MenuItem("BBQ veg pizza", 399))
+    menu.add_item(MenuItem("Corn cheese pizza", 399))
+    menu.add_item(MenuItem("Roasted chicken pizza", 459))
+    menu.add_item(MenuItem("Chicken tikka pizza", 459))
+    menu.add_item(MenuItem("BBQ non veg pizza", 459))
+    menu.add_item(MenuItem("Fries", 159))
+    menu.add_item(MenuItem("Garlic bread", 159))
+    menu.add_item(MenuItem("Chilli cheese fries", 229))
+    menu.add_item(MenuItem("Onion rings", 199))
+    menu.add_item(MenuItem("Potato wedges", 219))
+    menu.add_item(MenuItem("Chicken fingers", 259))
+    menu.add_item(MenuItem("Crispy prawns", 259))
+    menu.add_item(MenuItem("Fish fingers", 259))
+    menu.add_item(MenuItem("Veg greek salad", 269))
+    menu.add_item(MenuItem("Veg mexican salad", 269))
+    menu.add_item(MenuItem("Grilled chicken", 329))
+    menu.add_item(MenuItem("Spicy chicken strips", 329))
+    menu.add_item(MenuItem("White sauce pasta", 12.99))
+    menu.add_item(MenuItem("Red sauce pasta", 12.99))
+    menu.add_item(MenuItem("Pick sauce pasta", 12.99))
+    menu.add_item(MenuItem("Panner tikka sandwitch", 249))
+    menu.add_item(MenuItem("Peri Peri sandwitch",209))
+    menu.add_item(MenuItem("Egg and cheese sandwitch", 339))
+    menu.add_item(MenuItem("Pesto chicken sandwitch", 339))
+    menu.add_item(MenuItem("Virgin mogito", 249))
+    menu.add_item(MenuItem("Blue eye", 249))
+    menu.add_item(MenuItem("Dark Invader", 249))
+    menu.add_item(MenuItem("Green apple", 249))
+    menu.add_item(MenuItem("Blood orange", 249))
+    menu.add_item(MenuItem("Rose moctail", 349))
+    menu.add_item(MenuItem("Oreo shake",249))
+    menu.add_item(MenuItem("Vanilla caramel shake",249))
+    menu.add_item(MenuItem("Red velvet",249))
+    menu.add_item(MenuItem("Cookie crunch",249))
+    menu.add_item(MenuItem("Litchi shake",249))
+    menu.add_item(MenuItem("Black current shake",249))
+    menu.add_item(MenuItem("Iced cappuccino",165))
+    menu.add_item(MenuItem("Creamy Frappe",185))
+    menu.add_item(MenuItem("Caremel frappuccino",135))
+    menu.add_item(MenuItem("Hazlenut Frappe",255))
+    # Display the menu
+    menu.display_menu()
+
+    # Get customer choices
+    choices = []
+    while True:
+        choice = input("Enter an item from the menu (or 'done' to finish): ")
+        if choice == "done":
+            break
+        choices.append(choice)
+
+    # Calculate total price
+    total_price = calculate_total(menu, choices)
+    print(f"Total Price: Rs{total_price:.2f}")
+
+if __name__ == "__main__":
+    main()
